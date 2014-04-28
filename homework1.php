@@ -4,7 +4,7 @@
  * @param $number
  * @return array|bool
  */
-function getNumber($number)
+function getArrayOfNumber($number)
 {
     if (strlen($number) != 8)
         return false;
@@ -24,22 +24,22 @@ function getNumber($number)
  */
 function test()
 {
-    $array = getNumber("CA4567CB");
+    $array = getArrayOfNumber("CA4567CB");
     var_dump($array);
 
-    $array = getNumber("CA45679B");
+    $array = getArrayOfNumber("CA45679B");
     var_dump($array);
 
-    $array = getNumber("8A4567CB");
+    $array = getArrayOfNumber("8A4567CB");
     var_dump($array);
 
-    $array = getNumber("CA567CB");
+    $array = getArrayOfNumber("CA567CB");
     var_dump($array);
 
-    $array = getNumber("BA11167CB");
+    $array = getArrayOfNumber("BA11167CB");
     var_dump($array);
 
-    $array = getNumber("AP6466AB");
+    $array = getArrayOfNumber("AP6466AB");
     var_dump($array);
 }
 
