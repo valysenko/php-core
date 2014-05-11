@@ -1,11 +1,12 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: vladyslav
  * Date: 11.05.14
  * Time: 17:02
  */
-
-interface AddGoodInterface {
-
+interface AddGoodInterface
+{
+    public function addGoodToCategory($category, $good);
 } 
