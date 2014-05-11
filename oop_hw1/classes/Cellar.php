@@ -8,15 +8,15 @@
 
 class Cellar {
     /**
-     * @var ine
+     * @var float
      */
     protected $height;
     /**
-     * @var int
+     * @var float
      */
     protected $width;
     /**
-     * @var int
+     * @var float
      */
     protected $length;
 

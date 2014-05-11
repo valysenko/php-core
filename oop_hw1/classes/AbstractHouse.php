@@ -25,9 +25,25 @@ abstract class AbstractHouse
      */
     protected $roof;
     /**
-     * @var
+     * @var string
      */
-    protected $sheathing;
+    protected $owner;
+
+    /**
+     * @return string
+     */
+    public function getOwner()
+    {
+        return $this->owner;
+    }
+
+    /**
+     * @param string $owner
+     */
+    public function setOwner($owner)
+    {
+        $this->owner = $owner;
+    }
     /**
      * @var boolean
      */
@@ -54,8 +70,10 @@ abstract class AbstractHouse
      * @param $roof
      * @param $numberOfWindows
      */
-    function __construct($heating, $numberOfEntries, $roof, $numberOfWindows)
+    function __construct($heating, $numberOfEntries, $roof, $numberOfWindows,$owner)
     {
+        $this->locked = true;
+        $this->owner = $owner;
         $this->heating = $heating;
         $this->numberOfEntries = $numberOfEntries;
         $this->roof = $roof;

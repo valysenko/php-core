@@ -13,6 +13,13 @@ class CountryHouse extends AbstractHouse{
      */
     protected $cellar;
 
+    protected $celcellarlar;
+    function __construct($heating, $numberOfEntries, $roof, $numberOfWindows,$owner,$cellar)
+    {
+        parent::__construct($heating, $numberOfEntries, $roof, $numberOfWindows,$owner);
+        $this->cellar = $cellar;
+    }
+
     public function lockTheDoor()
     {
        $this->locked = true;
@@ -30,9 +37,9 @@ class CountryHouse extends AbstractHouse{
     public function enterTheHouse()
     {
         if($this->isLocked())
-            echo "Can not enter the house. The door is locked.";
+            echo "Can not enter the house. The door is locked.".PHP_EOL;
         else
-            echo "Enter the house.";
+            echo "Enter the house.".PHP_EOL;
     }
 
 
