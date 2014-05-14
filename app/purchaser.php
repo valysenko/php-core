@@ -6,13 +6,25 @@
  * Time: 14:57
  */
 
-set_include_path(get_include_path() . PATH_SEPARATOR . __DIR__ . '/classes');
+/*set_include_path(get_include_path() . PATH_SEPARATOR . __DIR__ . '/classes');
 
 spl_autoload_register(
     function ($className) {
         require_once(str_replace("\\", "/", $className) . '.php');
     }
-);
+);*/
+//$classLoader->register();
+require_once './vendor/symfony/class-loader/Symfonny/Compenent/ClassLoader/UniversalClassLoader.php';
+require_once './vendor/autoload.php';
+use Symfony\Component\ClassLoader\UniversalClassLoader;
+
+$classLoader = new UniversalClassLoader();
+$classLoader->registerNamespaces(array(
+    'BionicUniversity/VladyslavLysenko/'=>__DIR__.'/src',
+));
+
+
+
 
 /*
  * Building the Category of food
