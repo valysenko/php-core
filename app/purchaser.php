@@ -34,7 +34,7 @@ spl_autoload_register(
 
 
 spl_autoload_register(function ($class) {
-    require_once 'vladyslav-lysenko/src/BionicUniversity/VladyslavLysenko/Purchaser/classes/' . $class . '.php';
+    require_once '../../vladyslav-lysenko/src/BionicUniversity/VladyslavLysenko/Purchaser/classes/' . $class . '.php';
 });
 
 /*
