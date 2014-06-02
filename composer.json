@@ -1,0 +1,39 @@
+{
+    "name": "vladyslav/vladyslav-lysenko",
+    "authors": [
+        {
+            "name": "Lysenko Vladyslav",
+            "email": "stalkervlad2011@ukr.net"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "*",
+        "symfony/class-loader":"2.4.*",
+        "phpunit/phpunit": "~4.0",
+        "phpunit/php-invoker": "~1.1",
+        "phpunit/dbunit": "~1.2",
+
+        "phploc/phploc": "~2.0",
+        "sebastian/phpcpd": "~2.0",
+
+        "pdepend/pdepend": "~1.1",
+        "phpmd/phpmd": "~1.4",
+        "squizlabs/php_codesniffer": "~1.4",
+
+        "fabpot/php-cs-fixer": "~0.3",
+        "sensiolabs/security-checker": "~1.2",
+
+        "phpunit/php-invoker": "~1.1",
+        "phpunit/dbunit": "~1.2",
+
+        "phploc/phploc": "~2.0",
+        "sebastian/phpcpd": "~2.0",
+
+        "pdepend/pdepend": "~1.1",
+        "phpmd/phpmd": "~1.4",
+        "squizlabs/php_codesniffer": "~1.4",
+
+        "fabpot/php-cs-fixer": "~0.3",
+        "sensiolabs/security-checker": "~1.2"
+    }
+}
