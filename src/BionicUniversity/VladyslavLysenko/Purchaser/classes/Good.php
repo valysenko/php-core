@@ -5,7 +5,7 @@
  * Date: 11.05.14
  * Time: 14:59
  */
-
+namespace BionicUniversity\VladyslavLysenko\Purchaser\classes;
 class Good {
     /**
      * @var string

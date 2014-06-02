@@ -8,13 +8,15 @@
 namespace BionicUniversity\VladyslavLysenko\Purchaser\PurchaserTests;
 
 
-use BionicUniversity\VladyslavLysenko\Purchaser\PurchaserTests\Good;
-class TestGood {
-    public function testSetName(){
-        $good = new Good();
-        $name = 'Good!';
-        $good->setName($good);
-        $this->assertEquals($name, $good->getName());
 
+class GoodTest extends \PHPUnit_Framework_TestCase
+{
+    public function testSetName()
+    {
+
+        $good = new \BionicUniversity\VladyslavLysenko\Purchaser\classes\Good("",1);
+        $name = 'Good!';
+        $good->setName($name);
+        $this->assertEquals($name, $good->getName());
     }
 } 
