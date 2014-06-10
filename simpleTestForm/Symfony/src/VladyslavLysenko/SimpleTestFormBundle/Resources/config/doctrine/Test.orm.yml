@@ -1,0 +1,24 @@
+VladyslavLysenko\SimpleTestFormBundle\Entity\Test:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        quantityOfQuestions:
+            type: integer
+        description:
+            type: string
+            length: 255
+        maxMark:
+            type: string
+            length: 255
+    oneToMany:
+        questions:
+            targetEntity: VladyslavLysenko\SimpleTestFormBundle\Entity\Question
+            mappedBy: test
+    lifecycleCallbacks: {  }
+

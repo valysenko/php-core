@@ -1,0 +1,13 @@
+vladyslav_lysenko_simple_test_form_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: VladyslavLysenkoSimpleTestFormBundle:Default:index }
+_test:
+    resource: "@VladyslavLysenkoSimpleTestFormBundle/Resources/config/routing/test.yml"
+    prefix:   /test
+_question:
+    resource: "@VladyslavLysenkoSimpleTestFormBundle/Resources/config/routing/question.yml"
+    prefix:   /question
+_variant:
+    resource: "@VladyslavLysenkoSimpleTestFormBundle/Resources/config/routing/variant.yml"
+    prefix:   /variant
+

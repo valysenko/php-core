@@ -1,0 +1,4 @@
+vladyslav_lysenko_simple_test_form:
+    resource: "@VladyslavLysenkoSimpleTestFormBundle/Resources/config/routing.yml"
+    prefix:   /
+

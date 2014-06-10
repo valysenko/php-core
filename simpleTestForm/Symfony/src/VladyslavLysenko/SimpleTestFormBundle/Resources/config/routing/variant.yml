@@ -1,0 +1,30 @@
+variant:
+    pattern:  /
+    defaults: { _controller: "VladyslavLysenkoSimpleTestFormBundle:Variant:index" }
+
+variant_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "VladyslavLysenkoSimpleTestFormBundle:Variant:show" }
+
+variant_new:
+    pattern:  /new
+    defaults: { _controller: "VladyslavLysenkoSimpleTestFormBundle:Variant:new" }
+
+variant_create:
+    pattern:  /create
+    defaults: { _controller: "VladyslavLysenkoSimpleTestFormBundle:Variant:create" }
+    requirements: { _method: post }
+
+variant_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "VladyslavLysenkoSimpleTestFormBundle:Variant:edit" }
+
+variant_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "VladyslavLysenkoSimpleTestFormBundle:Variant:update" }
+    requirements: { _method: post|put }
+
+variant_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "VladyslavLysenkoSimpleTestFormBundle:Variant:delete" }
+    requirements: { _method: post|delete }
