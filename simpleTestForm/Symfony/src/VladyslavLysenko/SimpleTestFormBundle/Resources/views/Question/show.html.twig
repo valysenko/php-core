@@ -1,4 +1,4 @@
-{% extends '::base.html.twig' %}
+{% extends '::base_admin.html.twig' %}
 
 {% block body -%}
     <h1>Question</h1>
@@ -6,24 +6,24 @@
     <table class="record_properties">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
+                <th style="font-size:18px;color:darkslategray">Id</th>
+                <td style="font-size:18px;color:darkred">{{ entity.id }}</td>
             </tr>
             <tr>
-                <th>Description</th>
-                <td>{{ entity.description }}</td>
+                <th style="font-size:18px;color:darkslategray">Description</th>
+                <td style="font-size:18px;color:darkred">{{ entity.description }}</td>
             </tr>
             <tr>
-                <th>Type</th>
-                <td>{{ entity.type }}</td>
+                <th style="font-size:18px;color:darkslategray">Type</th>
+                <td style="font-size:18px;color:darkred">{{ entity.type }}</td>
             </tr>
             <tr>
-                <th>Quantityofanswers</th>
-                <td>{{ entity.quantityOfAnswers }}</td>
+                <th style="font-size:18px;color:darkslategray">Quantityofanswers</th>
+                <td style="font-size:18px;color:darkred">{{ entity.quantityOfAnswers }}</td>
             </tr>
             <tr>
-                <th>Mark</th>
-                <td>{{ entity.mark }}</td>
+                <th style="font-size:18px;color:darkslategray">Mark</th>
+                <td style="font-size:18px;color:darkred">{{ entity.mark }}</td>
             </tr>
         </tbody>
     </table>

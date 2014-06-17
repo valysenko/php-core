@@ -5,6 +5,7 @@ namespace VladyslavLysenko\SimpleTestFormBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+use VladyslavLysenko\SimpleTestFormBundle\Entity\Question;
 use VladyslavLysenko\SimpleTestFormBundle\Entity\Variant;
 use VladyslavLysenko\SimpleTestFormBundle\Form\VariantType;
 
@@ -19,24 +20,27 @@ class VariantController extends Controller
      * Lists all Variant entities.
      *
      */
-    public function indexAction()
+    public function indexAction($quastion_id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('VladyslavLysenkoSimpleTestFormBundle:Variant')->findAll();
-
+        $question = $em->getRepository('VladyslavLysenkoSimpleTestFormBundle:Question')->find(
+            $quastion_id);
+        $entities = $question->getVariants();
         return $this->render('VladyslavLysenkoSimpleTestFormBundle:Variant:index.html.twig', array(
-            'entities' => $entities,
+            'entities' => $entities,'id'=>$quastion_id,
         ));
     }
     /**
      * Creates a new Variant entity.
      *
      */
-    public function createAction(Request $request)
+    public function createAction(Request $request,$id)
     {
-        $entity = new Variant();
-        $form = $this->createCreateForm($entity);
+        $em = $this->getDoctrine()->getManager();
+        $question = $em->getRepository('VladyslavLysenkoSimpleTestFormBundle:Question')->find($id);
+        $entity = new Variant($question);
+        $form   = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
@@ -62,10 +66,7 @@ class VariantController extends Controller
     */
     private function createCreateForm(Variant $entity)
     {
-        $form = $this->createForm(new VariantType(), $entity, array(
-            'action' => $this->generateUrl('variant_create'),
-            'method' => 'POST',
-        ));
+        $form = $this->createForm(new VariantType(), $entity);
 
         $form->add('submit', 'submit', array('label' => 'Create'));
 
@@ -76,16 +77,19 @@ class VariantController extends Controller
      * Displays a form to create a new Variant entity.
      *
      */
-    public function newAction()
-    {
-        $entity = new Variant();
-        $form   = $this->createCreateForm($entity);
-
-        return $this->render('VladyslavLysenkoSimpleTestFormBundle:Variant:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        ));
-    }
+//    public function newAction($id)
+//    {
+//        $em = $this->getDoctrine()->getManager();
+//        $question = $em->getRepository('VladyslavLysenkoSimpleTestFormBundle:Question')->find($id);
+//        $entity = new Variant($question);
+//        $form   = $this->createCreateForm($entity);
+//
+//        return $this->render('VladyslavLysenkoSimpleTestFormBundle:Variant:new.html.twig', array(
+//            'entity' => $entity,
+//            'form'   => $form->createView(),
+//        ));
+////        return $this->redirect($this->generateUrl('index'));
+//    }
 
     /**
      * Finds and displays a Variant entity.
@@ -201,7 +205,7 @@ class VariantController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('variant'));
+        return $this->redirect($this->generateUrl('admin_index'));
     }
 
     /**

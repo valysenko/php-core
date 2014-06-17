@@ -1,16 +1,16 @@
-{% extends '::base.html.twig' %}
+{% extends '::base_admin.html.twig' %}
 
 {% block body -%}
-    <h1>Variant edit</h1>
+    <div style="text-align:center">
+        <h1>Variant edit</h1>
+        {{ form_start(edit_form) }}
+        {{ form_widget(edit_form.description, {'attr':{'placeholder':"Description"}}) }}<br>
 
-    {{ form(edit_form) }}
+        {{ form_widget(edit_form.quantityOfPoints, {'attr':{'placeholder':"Quantity Of Points"}}) }}<br>
+        {{ form_label(edit_form.question) }}:
+        {{ form_widget(edit_form.question) }}
+        {{ form_end(edit_form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('variant') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    {{ form(delete_form) }}
+    </div>
 {% endblock %}

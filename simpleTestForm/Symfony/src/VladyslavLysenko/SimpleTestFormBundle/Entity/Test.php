@@ -14,11 +14,46 @@ class Test
      * @var integer
      */
     private $id;
+    /**
+     * @var integer
+     */
+    private $idUser;
+
+    /**
+     * @return int
+     */
+    public function getIsActive()
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * @param int $isActive
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+    }
 
     /**
      * @var integer
      */
-    private $quantityOfQuestions;
+    private $isActive;
+    /**
+     * @return mixed
+     */
+    public function getIdUser()
+    {
+        return $this->idUser;
+    }
+
+    /**
+     * @param mixed $idUser
+     */
+    public function setIdUser($idUser)
+    {
+        $this->idUser = $idUser;
+    }
 
     /**
      * @var string
@@ -62,28 +97,13 @@ class Test
         return $this->id;
     }
 
-    /**
-     * Set quantityOfQuestions
-     *
-     * @param integer $quantityOfQuestions
-     * @return Test
-     */
-    public function setQuantityOfQuestions($quantityOfQuestions)
-    {
-        $this->quantityOfQuestions = $quantityOfQuestions;
 
-        return $this;
+
+    public function __toString()
+    {
+        return $this->getDescription();
     }
 
-    /**
-     * Get quantityOfQuestions
-     *
-     * @return integer 
-     */
-    public function getQuantityOfQuestions()
-    {
-        return $this->quantityOfQuestions;
-    }
 
     /**
      * Set description

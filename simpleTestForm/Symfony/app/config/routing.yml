@@ -1,3 +1,7 @@
+vladyslav_lysenko_user:
+    resource: "@VladyslavLysenkoUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 vladyslav_lysenko_simple_test_form:
     resource: "@VladyslavLysenkoSimpleTestFormBundle/Resources/config/routing.yml"
     prefix:   /

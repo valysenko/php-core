@@ -35,7 +35,12 @@ class TestController extends Controller
      */
     public function createAction(Request $request)
     {
+        //getting logged user id
+        $user = $this->get('security.context')->getToken()->getUser();
+        $userId = $user->getId();
+
         $entity = new Test();
+        $entity->setIdUser($userId);
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -194,14 +199,15 @@ class TestController extends Controller
             $entity = $em->getRepository('VladyslavLysenkoSimpleTestFormBundle:Test')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Test entity.');
+//                throw $this->createNotFoundException('Unable to find Test entity.');
+                return $this->redirect($this->generateUrl('admin_index'));
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('test'));
+        return $this->redirect($this->generateUrl('admin_index'));
     }
 
     /**

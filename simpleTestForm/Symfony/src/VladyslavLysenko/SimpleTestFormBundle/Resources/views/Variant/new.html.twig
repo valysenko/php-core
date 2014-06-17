@@ -1,15 +1,16 @@
-{% extends '::base.html.twig' %}
+{% extends '::base_admin.html.twig' %}
 
 {% block body -%}
-    <h1>Variant creation</h1>
+    <div style="text-align:center">
+        <div class="page_label">Variant creation</div>
+        {{ form_start(form) }}
+        {{ form_widget(form.description, {'attr':{'placeholder':"Description"}}) }}<br>
 
-    {{ form(form) }}
+        {{ form_widget(form.quantityOfPoints, {'attr':{'placeholder':"Quantity Of Points"}}) }}<br>
+        {{ form_label(form.question) }}:
+        {{ form_widget(form.question) }}
+        {{ form_end(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('variant') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+
+    </div>
 {% endblock %}

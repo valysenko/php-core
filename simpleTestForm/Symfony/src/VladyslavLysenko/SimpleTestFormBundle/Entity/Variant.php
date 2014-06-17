@@ -18,6 +18,28 @@ class Variant
      * @var string
      */
     private $description;
+
+    /**
+     * @var integer
+     */
+    private $quantityOfPoints;
+
+    /**
+     * @return int
+     */
+    public function getQuantityOfPoints()
+    {
+        return $this->quantityOfPoints;
+    }
+
+    /**
+     * @param int $qantityOfPoints
+     */
+    public function setQuantityOfPoints($qantityOfPoints)
+    {
+        $this->quantityOfPoints = $qantityOfPoints;
+    }
+
     /**
      * @var Question
      */
@@ -48,6 +70,11 @@ class Variant
         return $this->id;
     }
 
+    public function __construct( Question $question)
+    {
+       $this->question = $question;
+    }
+
     /**
      * Set description
      *
@@ -59,6 +86,11 @@ class Variant
         $this->description = $description;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getDescription();
     }
 
     /**

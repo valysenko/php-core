@@ -107,6 +107,11 @@ class Question
         return $this->description;
     }
 
+    function __construct()
+    {
+        $this->variants = new ArrayCollection();
+    }
+
     /**
      * Set type
      *
@@ -174,5 +179,10 @@ class Question
     public function getMark()
     {
         return $this->mark;
+    }
+
+    public function __toString()
+    {
+        return $this->getDescription();
     }
 }

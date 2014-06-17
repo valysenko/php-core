@@ -11,6 +11,8 @@ VladyslavLysenko\SimpleTestFormBundle\Entity\Variant:
         description:
             type: string
             length: 255
+        quantityOfPoints:
+            type: integer
     manyToOne:
         question:
             targetEntity: VladyslavLysenko\SimpleTestFormBundle\Entity\Question

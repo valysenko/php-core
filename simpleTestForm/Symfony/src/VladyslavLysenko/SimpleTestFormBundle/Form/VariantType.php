@@ -15,7 +15,8 @@ class VariantType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('description')
+            ->add('description','textarea')
+            ->add('quantityOfPoints')
             ->add('question')
         ;
     }

@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use VladyslavLysenko\SimpleTestFormBundle\Entity\Question;
+use VladyslavLysenko\SimpleTestFormBundle\Entity\Variant;
 use VladyslavLysenko\SimpleTestFormBundle\Form\QuestionType;
 
 /**
@@ -15,16 +16,17 @@ use VladyslavLysenko\SimpleTestFormBundle\Form\QuestionType;
 class QuestionController extends Controller
 {
 
+
     /**
      * Lists all Question entities.
      *
      */
-    public function indexAction()
+    public function indexAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('VladyslavLysenkoSimpleTestFormBundle:Question')->findAll();
-
+        $test = $em->getRepository('VladyslavLysenkoSimpleTestFormBundle:Test')->find($id);
+        $entities = $test->getQuestions();
         return $this->render('VladyslavLysenkoSimpleTestFormBundle:Question:index.html.twig', array(
             'entities' => $entities,
         ));
@@ -40,11 +42,18 @@ class QuestionController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+
+            for($i=0;$i<$entity->getQuantityOfAnswers();$i++) {
+                $variant = new Variant($entity);
+                $variant->setDescription("vatiant to be changed...");
+                $variant->setQuantityOfPoints(1);
+                $entity->getVariants()->add($variant);
+            }
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('question_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('admin_index'));
         }
 
         return $this->render('VladyslavLysenkoSimpleTestFormBundle:Question:new.html.twig', array(
@@ -78,7 +87,9 @@ class QuestionController extends Controller
      */
     public function newAction()
     {
+
         $entity = new Question();
+//        $entity = new Variant($question);
         $form   = $this->createCreateForm($entity);
 
         return $this->render('VladyslavLysenkoSimpleTestFormBundle:Question:new.html.twig', array(
@@ -91,22 +102,22 @@ class QuestionController extends Controller
      * Finds and displays a Question entity.
      *
      */
-    public function showAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('VladyslavLysenkoSimpleTestFormBundle:Question')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Question entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-
-        return $this->render('VladyslavLysenkoSimpleTestFormBundle:Question:show.html.twig', array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        ));
-    }
+//    public function showAction($id)
+//    {
+//        $em = $this->getDoctrine()->getManager();
+//
+//        $entity = $em->getRepository('VladyslavLysenkoSimpleTestFormBundle:Question')->find($id);
+//
+//        if (!$entity) {
+//            throw $this->createNotFoundException('Unable to find Question entity.');
+//        }
+//
+//        $deleteForm = $this->createDeleteForm($id);
+//
+//        return $this->render('VladyslavLysenkoSimpleTestFormBundle:Question:show.html.twig', array(
+//            'entity'      => $entity,
+//            'delete_form' => $deleteForm->createView(),        ));
+//    }
 
     /**
      * Displays a form to edit an existing Question entity.
@@ -129,6 +140,7 @@ class QuestionController extends Controller
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'id'=>$id,
         ));
     }
 
@@ -201,7 +213,7 @@ class QuestionController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('question'));
+        return $this->redirect($this->generateUrl('admin_index'));
     }
 
     /**

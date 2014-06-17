@@ -27,4 +27,6 @@ VladyslavLysenko\SimpleTestFormBundle\Entity\Question:
         variants:
             targetEntity: VladyslavLysenko\SimpleTestFormBundle\Entity\Variant
             mappedBy: question
+            cascade: [persist]
+            orphanRemoval: true
     lifecycleCallbacks: {  }

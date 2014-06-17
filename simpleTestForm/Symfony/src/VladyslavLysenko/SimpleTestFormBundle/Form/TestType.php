@@ -15,9 +15,13 @@ class TestType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('quantityOfQuestions')
             ->add('description')
             ->add('maxMark')
+            ->add('isactive','choice', array(
+                'choices' => array(
+                    '1' => 'Enable',
+                    '0' => 'Disable'
+                )))
         ;
     }
     

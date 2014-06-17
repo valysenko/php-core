@@ -16,9 +16,14 @@ class QuestionType extends AbstractType
     {
         $builder
             ->add('description')
-            ->add('type')
+
             ->add('quantityOfAnswers')
             ->add('mark')
+            ->add('type','choice', array(
+                'choices' => array(
+                    'radio' => 'radio',
+                    'checkbox' => 'checkbox'
+                )))
             ->add('test')
         ;
     }
