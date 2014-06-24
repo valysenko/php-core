@@ -22,15 +22,16 @@ variant_new:
 #    requirements: { _method: post }
 
 variant_edit:
-    pattern:  /{id}/edit
+    pattern:  /{question_id}/{id}/edit
     defaults: { _controller: "VladyslavLysenkoSimpleTestFormBundle:Variant:edit" }
     requirements:
         id: \d+
+        question_id: \d+
 
 variant_update:
-    pattern:  /{id}/update
+    pattern:  /{id}/{question_id}/update
     defaults: { _controller: "VladyslavLysenkoSimpleTestFormBundle:Variant:update" }
-    requirements: { _method: post|put, id: \d+ }
+    requirements: { _method: post|put, id: \d+, question_id: \d+ }
 
 variant_delete:
     pattern:  /{id}/delete

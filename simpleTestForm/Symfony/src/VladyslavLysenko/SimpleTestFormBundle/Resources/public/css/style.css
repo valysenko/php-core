@@ -66,6 +66,22 @@ html {
 }
 
 
+.test{
+   margin:auto;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+    color:darkslategray;
+}
+.result{
+    text-align:center;
+    font-size:25px;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+    color:forestgreen;
+}
+
+.page_label form input[type=text]{
+    color:green;
+}
+
 
 
 

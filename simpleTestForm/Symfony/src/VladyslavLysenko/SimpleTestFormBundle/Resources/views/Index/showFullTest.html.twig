@@ -8,27 +8,42 @@
         </div>
         <br>
         {% if result==null %}
+            <table class="test">
             {{ form_start(form) }}
-            {{ form_widget(form.name, {'attr':{'placeholder':"Enter your name "}}) }}<br><br>
+                <tr>
+                    <td>
+                        {{ form_widget(form.name, {'attr':{'placeholder':"Enter your name "}}) }}<br><br>
+                    </td>
+                </tr>
+
             {% for question in form.questions %}
-                <span style="font-size:18px;">
+                <tr>
+                <td style="font-size:18px;">
                     {#{{ form_label(question.description) }}#}
                     {{form_widget( question.description) }}
                  {{ loop.index }}.   {{  question.vars.data.description }}?
-
-                </span><br>
-                {{ form_widget(question.variants) }}<br>
-                {#{{form_widget( question.variant) }}#}
-                {#{%  for  variant in question.variants%}#}
-                    {#{{ form_widget(variant.description) }}<br>#}
-                {#{% endfor %}#}
+                </td>
+                </tr>
+                <tr>
+                    <td>
+                     {{ form_widget(question.variants) }}<br>
+                    </td>
+                </tr>
             {% endfor %}
-            {{ form_end(form) }}
+                <tr>
+                    <td>
+                        {{ form_end(form) }}
+                    </td>
+                </tr>
+
+                </table>
         {% endif %}
 
         {% if result!=null %}
             <br>
-            Your result: {{result}} ; {{percents}} %
+            <div class="result">
+                Your result: {{result}}<br> it is {{percents}} %
+            </div>
         {% endif %}
     </div>
 

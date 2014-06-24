@@ -14,10 +14,8 @@
         <form action="{{ path('check_path') }}" method="POST">
 
 
-
+            <div class="page_label"> Log in</div>
             <table class="security_table">
-                <tr style="height: 10px;"></tr>
-                <tr style="height: 10px;"></tr>
 
                 <tr>
 
@@ -29,7 +27,7 @@
                 <tr>
 
                     <td>
-                        <input type="password" class="input_login" id="password" placeholder="{% trans %}Пароль {% endtrans %}"
+                        <input type="password" class="input_login" id="password" placeholder="{% trans %}Password {% endtrans %}"
                                name="_password" />
                     </td>
                 </tr>

@@ -109,14 +109,14 @@ class VariantController extends Controller
 
         return $this->render('VladyslavLysenkoSimpleTestFormBundle:Variant:show.html.twig', array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        ));
+            'delete_form' => $deleteForm->createView(),'q_id'=>$id        ));
     }
 
     /**
      * Displays a form to edit an existing Variant entity.
      *
      */
-    public function editAction($id)
+    public function editAction($question_id,$id)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -126,7 +126,7 @@ class VariantController extends Controller
             throw $this->createNotFoundException('Unable to find Variant entity.');
         }
 
-        $editForm = $this->createEditForm($entity);
+        $editForm = $this->createEditForm($entity,$question_id);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('VladyslavLysenkoSimpleTestFormBundle:Variant:edit.html.twig', array(
@@ -143,10 +143,11 @@ class VariantController extends Controller
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(Variant $entity)
+    private function createEditForm(Variant $entity, $question_id)
     {
         $form = $this->createForm(new VariantType(), $entity, array(
-            'action' => $this->generateUrl('variant_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('variant_update', array('id' => $entity->getId(),
+                'question_id'=>$question_id)),
             'method' => 'PUT',
         ));
 
@@ -158,8 +159,9 @@ class VariantController extends Controller
      * Edits an existing Variant entity.
      *
      */
-    public function updateAction(Request $request, $id)
+    public function updateAction(Request $request,$question_id, $id)
     {
+//        var_dump($question_id);
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('VladyslavLysenkoSimpleTestFormBundle:Variant')->find($id);
@@ -169,13 +171,13 @@ class VariantController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createEditForm($entity);
+        $editForm = $this->createEditForm($entity,$question_id);
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('variant_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('variant', array('quastion_id' => $question_id)));
         }
 
         return $this->render('VladyslavLysenkoSimpleTestFormBundle:Variant:edit.html.twig', array(

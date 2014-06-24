@@ -7,7 +7,7 @@
         <div align="center" class="login_block">
             {{ form_start(form) }}
             {{ form_errors(form) }}
-
+            <div class="page_label"> Registration</div>
                 <table class="security_table">
 
                     <tr>
@@ -22,7 +22,7 @@
 
                         <td>
                             {{ form_errors(form.password) }}
-                            {{ form_widget(form.password,{ 'attr':{'class':'input_login', 'placeholder':'Пароль'}}) }}
+                            {{ form_widget(form.password,{ 'attr':{'class':'input_login', 'placeholder':'Password'}}) }}
                         </td>
                     </tr>
 

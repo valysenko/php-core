@@ -10,7 +10,7 @@
             <tr>
                 <td style="font-size:18px;color:darkred;">{{ entity.description }}</td>
                 <td class="second_label">
-                 <a href="{{ path('variant_edit', { 'id': entity.id }) }}">edit</a>
+                 <a href="{{ path('variant_edit', {'question_id':id, 'id': entity.id }) }}">edit</a>
                 </td>
             </tr>
         {% endfor %}
