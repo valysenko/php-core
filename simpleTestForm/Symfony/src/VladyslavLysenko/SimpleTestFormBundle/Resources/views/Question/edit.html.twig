@@ -1,7 +1,7 @@
 {% extends '::base_admin.html.twig' %}
 
 {% block body -%}
-    <div style="text-align:center">
+    <div style="text-align:center" class="edit_div">
         <h1>Question edit</h1>
         {{ form_start(edit_form) }}
         {{ form_widget(edit_form.description, {'attr':{'placeholder':"Description"}}) }}<br>

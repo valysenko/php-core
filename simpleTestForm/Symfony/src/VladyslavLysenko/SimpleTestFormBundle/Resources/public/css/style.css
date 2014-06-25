@@ -78,8 +78,10 @@ html {
     color:forestgreen;
 }
 
-.page_label form input[type=text]{
-    color:green;
+.edit_div form input[type=textarea]{
+    width:300px;
+    height:25px;
+    padding-left:5px;
 }
 
 
