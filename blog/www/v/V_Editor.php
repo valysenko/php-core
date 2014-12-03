@@ -1,0 +1,1 @@
+ <a href="index.php?c=new">! Новая статья!</a><br></div><hr><div class="mainblock">	<ul>		<? foreach ($articles as $article): ?>			<li>				<a href="index.php?c=edit&id=<?=$article['id_article']?>"id="href">					<?=$article['title']?>				</a>			</li>		<? endforeach ?>	</ul>	

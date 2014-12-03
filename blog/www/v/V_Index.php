@@ -1,0 +1,1 @@
+				<a href="index.php?c=editor">Controller</a>						<br>		</div>		<hr>		<div class="mainblock">		<?foreach ($articles as $article):?>			<a href="index.php?c=article&id=<?=$article['id_article']?>" id="href"><h3><?=$article['title'];?></h3></a>			<div>			<?=($article['content']."...");?>			</div>						<?endforeach?>
