@@ -1,0 +1,26 @@
+a{
+    font-size: 18px;
+    text-decoration: none;
+    color:darkblue;
+}
+a:hover{
+    color:darkblue;
+    text-decoration: underline;
+}
+
+.menu{
+    font-size: 18px;
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.head{
+    text-align: center;
+    font-size: 24px;
+    margin-bottom:10px;
+}
+._form{
+    width:250px;
+    margin:auto;
+    padding:auto;
+}

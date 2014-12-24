@@ -1,5 +1,12 @@
-<h1>Sign in</h1>
-<p>
+<div class="head">
+    Sign up
+</div>
+
+<div class="menu">
+    <a href = "/login"> sign in </a> |
+    <a href = "/registration"> sign up </a>
+</div>
+<div class="_form">
 <form action="" method="post">
     <table class="login">
         <tr>
@@ -19,7 +26,7 @@
                    style="width: 150px; height: 30px;"></th>
     </table>
 </form>
-</p>
+</div>
 
 <?php extract($data); ?>
 <?php if($reg_status=="fail") {?>
