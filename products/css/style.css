@@ -24,3 +24,11 @@ a:hover{
     margin:auto;
     padding:auto;
 }
+.logout{
+    text-align: right;
+}
+.products{
+    width:400px;
+    margin:auto;
+    padding:auto;
+}

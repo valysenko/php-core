@@ -8,11 +8,6 @@
 
 class Model_Login extends Model{
 
-    public function get_data()
-    {
-
-    }
-
     /**
      * @param $login
      * @param $password
@@ -29,7 +24,8 @@ class Model_Login extends Model{
 
       //  $query = "SELECT * FROM products.user  WHERE login='$login' AND user.password='$password'";
         $result = mysql_query($query);
-        $n = mysql_num_rows($result);
-        return $n;
+       // $n = mysql_num_rows($result);
+        $row = mysql_fetch_assoc($result);
+        return $row['id'];
     }
 }

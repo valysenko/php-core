@@ -16,23 +16,27 @@ class Controller_Login extends Controller{
 
     public function action_index()
     {
+        //just for logout
+      //  session_start();
+      //  session_destroy();
+
        if(isset($_POST['login']) && isset($_POST['password']))
         {
             $login = $_POST['login'];
             $password =$_POST['password'];
-            $n = $this->model->getUser($login,$password);
+            $id = $this->model->getUser($login,$password);
 
             /*
             Производим аутентификацию, сравнивая полученные значения со значениями прописанными в коде.
             Такое решение не верно с точки зрения безопсаности и сделано для упрощения примера.
             Логин и пароль должны храниться в БД, причем пароль должен быть захеширован.
             */
-            if($n>0)
+            if($id>0)
             {
                 $data["login_status"] = "access_granted";
 
                 session_start();
-               $_SESSION['admin'] = $login;
+               $_SESSION['admin'] = $id;
                 header('Location:/admin/');
             }
             else
